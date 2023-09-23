@@ -8,7 +8,26 @@ const main = () => {
 
   const onButtonSearchClicked = async () => {
     try {
-      const result = await DataSource.searchRecipe(searchElement.value);
+      let result;
+      const selectedCategory = searchElement.selectedCategory;
+      
+      switch (selectedCategory) {
+        case 'name':
+          result = await DataSource.searchRecipeByName(searchElement.value);
+          break;
+        case 'ingredient':
+          result = await DataSource.searchRecipeByIngredient(searchElement.value);
+          break;
+        case 'category':
+          result = await DataSource.searchRecipeByCategory(searchElement.value);
+          break;
+        case 'area':
+          result = await DataSource.searchRecipeByArea(searchElement.value);
+          break;
+        default:
+          result = await DataSource.searchRecipeByName(searchElement.value);
+      }
+
       renderResult(result);
     } catch (message) {
       fallbackResult(message);
