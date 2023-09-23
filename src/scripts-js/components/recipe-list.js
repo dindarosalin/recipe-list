@@ -12,16 +12,6 @@ class RecipeList extends HTMLElement {
     this.render();
   }
 
-  // render() {
-  //   this.shadowDOM.innerHTML = '';
-
-  //   this._recipe.forEach(recipe => {
-  //     const recipeItemElement = document.createElement('recipe-item');
-  //     recipeItemElement.recipe = recipe;
-  //     this.shadowDOM.appendChild(recipeItemElement);
-  //   });
-  // }
-
   render() {
     this.shadowDOM.innerHTML = '';
 

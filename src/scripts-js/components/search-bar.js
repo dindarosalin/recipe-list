@@ -21,75 +21,68 @@ class SearchBar extends HTMLElement {
 
   render() {
     this.shadowDOM.innerHTML = `
-      <style>
-        .search-container {
-          max-width: 800px;
-          box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
-          padding: 16px;
-          border-radius: 5px;
-          display: flex;
-          position: sticky;
-          top: 10px;
-          background-color: white;
-        }
-       
-        .search-container > input {
-          width: 75%;
-          padding: 16px;
-          border: 0;
-          border-bottom: 1px solid #3A4FA1;
-          font-weight: bold;
-          font-size: 21px;
-        }
-       
-        .search-container > input:focus {
-          outline: 0;
-          border-bottom: 2px solid #3A4FA1;
-        }
-       
-        .search-container > input:focus::placeholder {
-          font-weight: bold;
-        }
-        
-        .search-container >  input::placeholder {
-          color: #3A4FA1;
-          font-weight: normal;
-          font-size: 21px;
-        }
-       
-        .search-container > button {
-          width: 23%;
-          cursor: pointer;
-          margin-left: auto;
-          padding: 16px;
-          background-color: #3A4FA1;
-          color: white;
-          border: 0;
-          text-transform: uppercase;
-          font-size: 18px;
-        }
-       
-        @media screen and (max-width: 550px){
-          .search-container {
-            flex-direction: column;
-            position: static;
-          }
-     
-          .search-container > input {
-            width: 100%;
-            margin-bottom: 12px;
-          }
-     
-          .search-container > button {
-            width: 100%;
-          }
-        }
-      </style>
+    <style>
+    .search-container {
+      display: flex;
+      max-width: 700px;
+      margin: auto;
+      margin-top: 70px;
       
-      <div id="search-container" class="search-container">
-        <input placeholder="search recipe" id="searchElement" type="search">
-        <button id="searchButtonElement" type="submit">Search</button>
-      </div>
+      border-radius: 5px;
+      background-color: white;
+
+      outline: 1px solid #053B50;
+    }
+
+    input[type="search"] {
+      width: 75%;
+      padding: 16px;
+      border: 0;
+      font-weight: bold;
+      font-size: 21px;
+    }
+
+    input[type="search"]:focus {
+      outline: 0;
+    }
+
+    input[type="search"]::placeholder {
+      color: #053B50;
+      font-weight: normal;
+      font-size: 21px;
+    }
+
+    button[type="submit"] {
+      width: 25%;
+      cursor: pointer;
+      padding: 16px;
+      background-color: #053B50;
+      color: white;
+      border: 0px;
+      text-transform: uppercase;
+      font-size: 18px;
+    }
+
+    @media screen and (max-width: 550px) {
+      .search-container {
+        flex-direction: column;
+      }
+
+      input[type="search"] {
+        width: 100%;
+        margin-bottom: 12px;
+      }
+
+      button[type="submit"] {
+        width: 100%;
+      }
+    }
+  </style>
+  
+  <div class="search-container">
+    <input placeholder="Search recipe" id="searchElement" type="search">
+    <button id="searchButtonElement" type="submit">Search</button>
+  </div>
     `;
 
     this.shadowDOM.querySelector('#searchButtonElement').addEventListener('click', this._clickEvent);

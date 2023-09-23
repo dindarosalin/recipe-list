@@ -1,5 +1,3 @@
-import '../style/app-bar.css';
-
 class AppBar extends HTMLElement {
   constructor() {
     super();
@@ -12,7 +10,38 @@ class AppBar extends HTMLElement {
 
   render() {
     this.shadowDOM.innerHTML = `
-      <h2>Recipe Finder</h2>
+    <style>
+        * {
+          margin: 0;
+          padding: 0;
+          box-sizing: border-box;
+        }
+        :host {
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+          width: 100%;
+          background-color: #053B50;
+          color: white;
+          position: fixed;
+          top: 0;
+          left: 0;
+        }
+        h2 {
+          padding: 16px;
+          text-align: center;
+          flex-grow: 1;
+        }
+
+        @media screen and (max-width: 768px) {
+          h2 {
+            font-size: 18px;
+            padding: 10px;
+          }
+        }
+      </style>
+      
+      <h2>Recipes Finder</h2>
     `;
   }
 }
